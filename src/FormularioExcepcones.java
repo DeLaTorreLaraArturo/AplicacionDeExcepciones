@@ -12,8 +12,21 @@ public class FormularioExcepcones {
         button1.addActionListener(new ActionListener() { //Calse anonima
             @Override
             public void actionPerformed(ActionEvent e) {
-             //System.out.println("HOLA " + nombre.getText());
-                JOptionPane.showMessageDialog(null, "Quiero Dividir " + numero1.getText() + "y " + numero2.getText());
+                try {
+                    //System.out.println("HOLA " + nombre.getText());
+                    int num1 = Integer.parseInt(numero1.getText());
+                    int num2 = Integer.parseInt(numero2.getText());
+                    int res = num1 / num2;
+                    JOptionPane.showMessageDialog(null, "La division entre " + num1 + "y " + num2 + "= " + res);
+                }
+                catch(ArithmeticException e1)
+                {
+                    JOptionPane.showMessageDialog(null,"No puedes dividir entre 0");
+                }
+                catch(NumberFormatException e2)
+                {
+                    JOptionPane.showMessageDialog(null, "No ingresaste un numero");
+                }
             }
         });
     }
